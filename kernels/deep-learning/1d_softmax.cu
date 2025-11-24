@@ -63,7 +63,7 @@ __global__ void softmax_kernel(const float* input, float* output, int N)
         output[idx] = __expf(input[idx] - d_max) / d_norm;
 }
 
-extern "C" void solve(const float* input, float* output, int N)
+void solve(const float* input, float* output, int N)
 {
     int threads = 256;
     int blocks = (N + threads - 1) / threads;
